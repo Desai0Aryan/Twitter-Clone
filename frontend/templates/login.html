@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Twitter Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1>Twitter Clone</h1>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" 
+                           placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" 
+                           placeholder="Password" required>
+                </div>
+                <div class="error-message" id="login-error"></div>
+                <button type="submit" class="btn btn-primary">Log in</button>
+            </form>
+            <p class="auth-switch">
+                Don't have an account? <a href="/register">Sign up</a>
+            </p>
+        </div>
+    </div>
+    <script src="/static/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+.notifications-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    z-index: 100;
+}
+
+.notifications-header h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.notification-filters {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.notification-filters::-webkit-scrollbar {
+    height: 4px;
+}
+
+.notification-filters::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.notification-filters::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f7f9fa;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    background-color: #edf1f2;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.notification {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.notification:hover {
+    background-color: #f7f9fa;
+}
+
+.notification.unread {
+    background-color: #e8f5fe;
+}
+
+.notification-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-text {
+    margin-bottom: 4px;
+}
+
+.notification-text a {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.notification-text a:hover {
+    text-decoration: underline;
+}
+
+.notification-time {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.notification-preview {
+    margin-top: 8px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--secondary-color);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .notification-filters {
+        padding: 0 16px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .notification {
+        padding: 12px;
+    }
+} 

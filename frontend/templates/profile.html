@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile / Twitter Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        {% with active_page='profile' %}
+        {% include 'components/navbar.html' %}
+        {% endwith %}
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-banner">
+                    <button class="edit-banner-btn" id="edit-banner-btn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-picture-container">
+                        <img src="" alt="Profile" id="profile-picture" class="profile-picture">
+                        <button class="edit-avatar-btn" id="edit-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="profile-name"></h1>
+                        <p class="username" id="profile-username"></p>
+                        <p class="bio" id="profile-bio"></p>
+                        <div class="profile-stats">
+                            <div class="stats-item">
+                                <span id="following-count">0</span>
+                                <span class="stats-label">Following</span>
+                            </div>
+                            <div class="stats-item">
+                                <span id="followers-count">0</span>
+                                <span class="stats-label">Followers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button id="edit-profile-btn" class="btn btn-primary">
+                            Edit Profile
+                        </button>
+                        <button id="follow-btn" class="btn btn-primary" style="display: none;">
+                            Follow
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="tweets">Tweets</button>
+                <button class="tab-btn" data-tab="replies">Replies</button>
+                <button class="tab-btn" data-tab="media">Media</button>
+                <button class="tab-btn" data-tab="likes">Likes</button>
+            </div>
+
+            <!-- Tweet Feed -->
+            <div class="tweet-feed" id="tweet-feed">
+                <!-- Tweets will be inserted here -->
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more" id="load-more">
+                <button class="btn btn-secondary">Load more</button>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar right-sidebar">
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" 
+                       placeholder="Search Twitter Clone">
+                <div class="search-results" id="search-results"></div>
+            </div>
+
+            <!-- Who to follow -->
+            <div class="who-to-follow">
+                <h3>Who to follow</h3>
+                <div class="suggested-users" id="suggested-users">
+                    <!-- Suggested users will be inserted here -->
+                </div>
+                <button class="refresh-suggestions" id="refresh-suggestions">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit-profile-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Profile</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="edit-name">Name</label>
+                    <input type="text" id="edit-name" name="name" maxlength="50">
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio">Bio</label>
+                    <textarea id="edit-bio" name="bio" maxlength="160"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tweet Modal (same as feed.html) -->
+    <div class="modal" id="tweet-modal">
+        <!-- Same content as feed.html -->
+    </div>
+
+    <!-- Include the comments modal -->
+    <div class="modal" id="comments-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-tweet-container">
+                <div id="post-content"></div>
+                <div class="comments-section">
+                    <form class="comment-form">
+                        <textarea placeholder="Write a comment..." maxlength="280"></textarea>
+                        <button type="submit" disabled>Comment</button>
+                    </form>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Left Sidebar -->
+<nav class="sidebar left-sidebar">
+    <div class="logo">
+        <i class="fab fa-twitter"></i>
+    </div>
+    <ul class="nav-links">
+        <li {% if active_page == 'feed' %}class="active"{% endif %}>
+            <a href="/feed">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li {% if active_page == 'messages' %}class="active"{% endif %}>
+            <a href="/messages">
+                <i class="fas fa-envelope"></i>
+                <span>Messages</span>
+                <span class="message-badge" id="unread-count"></span>
+            </a>
+        </li>
+        <li {% if active_page == 'profile' %}class="active"{% endif %}>
+            <a href="/profile" id="profile-link">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+        <li>
+            <button id="logout-btn" class="btn btn-primary">
+                Logout
+            </button>
+        </li>
+    </ul>
+</nav> 

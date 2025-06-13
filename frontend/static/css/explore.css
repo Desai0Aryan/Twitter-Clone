@@ -1,0 +1,122 @@
+.search-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--background-color);
+    z-index: 100;
+}
+
+.trending-section,
+.categories-section {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.trending-section h2,
+.categories-section h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.trending-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.trending-topic {
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #f7f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.trending-topic:hover {
+    background-color: #edf1f2;
+}
+
+.trending-topic .topic-category {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.trending-topic .topic-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.trending-topic .topic-tweets-count {
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+.categories {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.categories::-webkit-scrollbar {
+    height: 4px;
+}
+
+.categories::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.categories::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f7f9fa;
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.category-btn:hover {
+    background-color: #edf1f2;
+}
+
+.category-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.explore-feed {
+    padding-top: 16px;
+}
+
+.explore-feed .tweet {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.explore-feed .tweet:hover {
+    background-color: #f7f9fa;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .categories {
+        padding: 0 16px;
+    }
+    
+    .category-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+} 

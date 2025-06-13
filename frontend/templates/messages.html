@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages / Twitter Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/messages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        {% with active_page='messages' %}
+        {% include 'components/navbar.html' %}
+        {% endwith %}
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="messages-wrapper">
+                <!-- Conversations List -->
+                <div class="conversations-list">
+                    <div class="conversations-header">
+                        <h2>Messages</h2>
+                        <button id="new-message-btn" class="btn btn-primary">
+                            <i class="fas fa-envelope"></i>
+                            New Message
+                        </button>
+                    </div>
+                    <div class="conversations" id="conversations">
+                        <!-- Conversations will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Message Thread -->
+                <div class="message-thread" id="message-thread">
+                    <!-- Default state -->
+                    <div class="no-messages-selected">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Select a conversation</h3>
+                        <p>Choose from your existing conversations or start a new one.</p>
+                    </div>
+
+                    <!-- Active conversation state -->
+                    <div class="conversation-container" style="display: none;">
+                        <div class="thread-header">
+                            <img src="" alt="" class="avatar" id="thread-avatar">
+                            <h3 id="thread-name"></h3>
+                        </div>
+                        <div class="messages" id="messages">
+                            <!-- Messages will be inserted here -->
+                        </div>
+                        <form id="message-form" class="message-composer">
+                            <textarea placeholder="Start a new message" 
+                                    id="message-input"></textarea>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Message Modal -->
+    <div class="modal" id="new-message-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>New Message</h2>
+            </div>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="user-search" 
+                       placeholder="Search for people">
+                <div class="search-results" id="user-search-results">
+                    <!-- Search results will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/messages.js"></script>
+</body>
+</html>

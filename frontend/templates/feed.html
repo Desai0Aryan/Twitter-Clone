@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home / Twitter Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/feed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        {% with active_page='feed' %}
+        {% include 'components/navbar.html' %}
+        {% endwith %}
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tweet Composer -->
+            <div class="tweet-composer">
+                <img src="" alt="Profile" id="user-avatar" class="avatar">
+                <form id="tweet-form">
+                    <textarea placeholder="What's happening?" 
+                              id="tweet-content" 
+                              name="content" 
+                              maxlength="280"></textarea>
+                    <div class="tweet-actions">
+                        <div class="media-upload">
+                            <label for="image-upload">
+                                <i class="far fa-image"></i>
+                            </label>
+                            <input type="file" id="image-upload" name="image" accept="image/*" hidden>
+                            <label for="video-upload">
+                                <i class="fas fa-video"></i>
+                            </label>
+                            <input type="file" id="video-upload" name="video" accept="video/*" hidden>
+                        </div>
+                        <div class="media-preview" id="media-preview"></div>
+                        <button type="submit" class="btn btn-primary" disabled>
+                            Tweet
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Tweet Feed -->
+            <div class="tweet-feed" id="tweet-feed">
+                <!-- Tweets will be inserted here -->
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more" id="load-more">
+                <button class="btn btn-secondary">Load more</button>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar right-sidebar">
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" 
+                       placeholder="Search Twitter Clone">
+                <div class="search-results" id="search-results"></div>
+            </div>
+
+            <!-- Who to follow -->
+            <div class="who-to-follow">
+                <h3>Who to follow</h3>
+                <div class="suggested-users" id="suggested-users">
+                    <!-- Suggested users will be inserted here -->
+                </div>
+                <button class="refresh-suggestions" id="refresh-suggestions">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal for displaying tweets -->
+    <div class="modal" id="comments-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-tweet-container">
+                <div id="post-content"></div>
+                <div class="comments-section">
+                    <form class="comment-form">
+                        <textarea placeholder="Write a comment..." maxlength="280"></textarea>
+                        <button type="submit" disabled>Comment</button>
+                    </form>
+                    <div id="comments-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/feed.js"></script>
+</body>
+</html>
