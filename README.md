@@ -1,4 +1,4 @@
-# Twitter Clone (recreated with AWS) 
+# Twitter Clone (recreated without AWS) 
 ![Screenshot 2025-06-13 174724](https://github.com/user-attachments/assets/1023110f-ef95-43af-987d-130da5ef6f1a)
 
 
