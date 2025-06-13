@@ -1,4 +1,5 @@
 # Twitter Clone
+![project](https://github.com/user-attachments/assets/9b23c26f-4e47-4e0c-9e18-ed4b82bb109f)
 
 A full-stack Twitter clone application built with Flask backend and React frontend.
 
